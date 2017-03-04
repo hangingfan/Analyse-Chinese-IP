@@ -109,13 +109,13 @@ public class GetChinaIp : MonoBehaviour {
         else if(iNum < 65537)
         {
             iLastIP4 = 255;
-            iLastIP3 = iFirstIP3 + iNum / 256;
+            iLastIP3 = Mathf.Min(255, iFirstIP3 + iNum / 256);
         }
         else if(iNum < 16777217)
         {
             iLastIP4 = 255;
             iLastIP3 = 255;
-            iLastIP2 = iFirstIP2 + iNum / 65536;
+            iLastIP2 = Mathf.Min(255, iFirstIP2 + iNum / 65536);
         }
 
         string strLastIp = iLastIP1 + "." + iLastIP2 + "." + iLastIP3 + "." + iLastIP4;
